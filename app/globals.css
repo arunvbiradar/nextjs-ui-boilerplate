@@ -3,25 +3,159 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --font-lato: 'Lato', sans-serif;
+  --font-gentium: 'Gentium Book Plus', serif;;
+  --font-roboto-mono: 'Roboto Mono', monospace;;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  /* body */
+  body {
+    @apply bg-slate-50;
+  }
+
+  /* links */
+  a {
+    @apply underline underline-offset-4 transition-all hover:text-sky-500 hover:underline-offset-2;
+  }
+
+  /* typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-main;
+  }
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    @apply font-default;
+  }
+  h1, .h1 {
+    @apply text-7xl font-normal;
+  }
+  h2, .h2 {
+    @apply text-6xl font-normal;
+  }
+  h3, .h3 {
+    @apply text-5xl font-normal;
+  }
+  h4, .h4 {
+    @apply text-3xl font-normal;
+  }
+  h5, .h5 {
+    @apply text-2xl font-normal;
+  }
+  h6, .h6 {
+    @apply text-base font-normal;
+  }
+  strong, bold {
+    @apply font-bold;
+  }
+
+  /* lines */
+  hr {
+    @apply border-slate-300 my-3;
+  }
+
+  /* buttons */
+  button {
+    @apply no-underline transition-all border-2 px-4 py-1 rounded-md border-gray-700 text-gray-700
+    hover:bg-gray-700 hover:text-slate-100 hover:shadow-md hover:shadow-slate-400
+    focus:bg-gray-800 focus:text-slate-100 focus:shadow-inner focus:shadow-slate-900
+    active:bg-gray-700 active:text-slate-100 active:outline active:outline-2 active:outline-offset-2 active:outline-gray-500;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  /* typography */
+  .lead {
+    @apply text-xl;
+  }
+}
+
+@layer utilities {
+  /* buttons */
+  .btn {
+    @apply no-underline inline-block;
+  }
+  .btn.btn-sm {
+    @apply px-2 rounded-md text-sm;
+  }
+
+  .btn-link {
+    @apply border-none px-0 py-1 underline underline-offset-4
+    hover:underline-offset-2
+    focus:underline-offset-2
+    active:underline-offset-2
+  }
+
+  .btn-primary {
+    @apply border-2 px-4 py-1 rounded-md border-sky-500 text-sky-100 bg-sky-500
+    hover:bg-sky-700 hover:border-sky-700 hover:text-sky-50
+    focus:bg-sky-800 hover:border-sky-800 focus:text-sky-100 focus:shadow-inner focus:shadow-sky-900
+    active:bg-sky-700 hover:border-sky-700 active:text-sky-100 active:outline active:outline-2 active:outline-offset-2 active:outline-sky-500;
+  }
+  .btn-secondary {
+    @apply border-2 px-4 py-1 rounded-md border-slate-500 text-slate-100 bg-slate-500
+    hover:bg-slate-700 hover:border-slate-700 hover:text-slate-50 hover:shadow-md hover:shadow-slate-300
+    focus:bg-slate-800 hover:border-slate-800 focus:text-slate-100 focus:shadow-inner focus:shadow-slate-900
+    active:bg-slate-700 hover:border-slate-700 active:text-slate-100 active:outline active:outline-2 active:outline-offset-2 active:outline-slate-500;
+  }
+  .btn-danger {
+    @apply border-2 px-4 py-1 rounded-md border-rose-500 text-rose-50 bg-rose-500
+    hover:bg-rose-700 hover:border-rose-700 hover:text-rose-50 hover:shadow-md hover:shadow-rose-300
+    focus:bg-rose-800 hover:border-rose-800 focus:text-rose-100 focus:shadow-inner focus:shadow-rose-900
+    active:bg-rose-700 hover:border-rose-700 active:text-rose-100 active:outline active:outline-2 active:outline-offset-2 active:outline-rose-500;
+  }
+  .btn-warning {
+    @apply border-2 px-4 py-1 rounded-md border-yellow-500 text-yellow-50 bg-yellow-500
+    hover:bg-yellow-700 hover:border-yellow-700 hover:text-yellow-50 hover:shadow-md hover:shadow-yellow-200
+    focus:bg-yellow-800 hover:border-yellow-800 focus:text-yellow-100 focus:shadow-inner focus:shadow-yellow-900
+    active:bg-yellow-700 hover:border-yellow-700 active:text-yellow-100 active:outline active:outline-2 active:outline-offset-2 active:outline-yellow-500;
+  }
+  .btn-info {
+    @apply border-2 px-4 py-1 rounded-md border-blue-500 text-blue-50 bg-blue-500
+    hover:bg-blue-700 hover:border-blue-700 hover:text-blue-50 hover:shadow-md hover:shadow-blue-300
+    focus:bg-blue-800 hover:border-blue-800 focus:text-blue-100 focus:shadow-inner focus:shadow-blue-900
+    active:bg-blue-700 hover:border-blue-700 active:text-blue-100 active:outline active:outline-2 active:outline-offset-2 active:outline-blue-500;
+  }
+  .btn-success {
+    @apply border-2 px-4 py-1 rounded-md border-teal-500 text-teal-50 bg-teal-500
+    hover:bg-teal-700 hover:border-teal-700 hover:text-teal-50 hover:shadow-md hover:shadow-teal-300
+    focus:bg-teal-800 hover:border-teal-800 focus:text-teal-100 focus:shadow-inner focus:shadow-teal-900
+    active:bg-teal-700 hover:border-teal-700 active:text-teal-100 active:outline active:outline-2 active:outline-offset-2 active:outline-teal-500;
+  }
+
+  /* button group */
+  .btn-group button, .btn-group .btn {
+    @apply rounded-none
+  }
+  .btn-group button:first-of-type, .btn-group .btn:first-of-type {
+    @apply rounded-s-md;
+  }
+  .btn-group button:last-of-type, .btn-group .btn:last-of-type {
+    @apply rounded-e-md;
+  }
+
+  /* cards */
+  .card {
+    @apply border rounded-md shadow shadow-md shadow-slate-200 py-4 max-w-[400px];
+  }
+  .card .title, .card .body {
+    @apply px-4;
+  }
+  .card .title {
+    @apply mb-2;
+  }
+  .card .body p, .card img {
+    @apply mb-4;
+  }
+  .card h2 {
+    @apply text-2xl font-bold;
+  }
+  .card h3 {
+    @apply text-lg font-default font-normal text-slate-400 mb-3;
+  }
+
+  
+  /* code block */
+  pre {
+    @apply bg-slate-800 text-slate-200 font-light p-4 rounded-md;
+  }
 }
